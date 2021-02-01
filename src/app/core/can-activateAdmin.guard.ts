@@ -9,7 +9,7 @@ import { MatSnackBar } from '@angular/material';
 @Injectable({
   providedIn: 'root'
 })
-export class CanActivateGuard implements CanActivate {
+export class CanActivateAdminGuard implements CanActivate {
 
   constructor(
     private authService: AuthService,
@@ -43,12 +43,11 @@ export class CanActivateGuard implements CanActivate {
           }
           return true;
         } else {
-          // je mets cette partie en commentaire car elle empeche un utilisateur lambda de se connecter
-          //if ( !response.roles.includes('ROLE_ADMIN') && ('admin' in next.data) ) {
-          //  this.router.navigate(['/auth/signin']);
-          //  this.snackBar.open("Vous n'avez pas les droits nécessaires pour accéder à cette page");
-          //  return false;
-          //}
+          if ( !response.roles.includes('ROLE_ADMIN') && ('admin' in next.data) ) {
+            this.router.navigate(['/auth/signin']);
+            this.snackBar.open("Vous n'avez pas les droits nécessaires pour accéder à cette page");
+            return false;
+          }
           return true;
         }
       })

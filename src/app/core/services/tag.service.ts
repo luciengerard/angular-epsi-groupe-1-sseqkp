@@ -18,4 +18,7 @@ export class TagService {
     );
   }
 
+  getTagsAdmin(): Observable<any> {
+    return this.httpClient.get(`${environment.api}/api/admin/tags`);
+  }
 }

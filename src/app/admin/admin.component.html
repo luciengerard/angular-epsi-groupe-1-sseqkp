@@ -1,0 +1,23 @@
+<h1>Admin</h1>
+
+<input type="text" [(ngModel)]="name" (keyup)='Search()' />
+<div class="tableau">
+    <div class="name">
+        <div class="titre">
+            Name
+        </div>
+        <div class="data" *ngFor="let tag of tags">
+            {{ tag.name }}
+        </div>
+    </div>
+    <div class="name">
+        <div class="titre">
+            Itérations
+        </div>
+        <div class="data" *ngFor="let tag of tags">
+            <div class="ligne ">
+                {{ tag.iteration }}
+            </div>
+        </div>
+    </div>
+</div>

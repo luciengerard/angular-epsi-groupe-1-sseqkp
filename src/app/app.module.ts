@@ -8,6 +8,7 @@ import {CoreModule} from './core/core.module';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {ApiInterceptor} from './core/api.interceptor';
 import {SharedModule} from './shared/shared.module';
+import { AdminRoutingModule } from './admin/admin-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {SharedModule} from './shared/shared.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    AdminRoutingModule,
   ],
   providers: [
     {

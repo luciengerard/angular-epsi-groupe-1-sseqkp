@@ -21,19 +21,19 @@ export class AppComponent {
     return AuthService.isSignedIn;
   }
 
+  get isAdmin(): boolean {
+    if(this.isSignedIn){
+      return AuthService.isAdmin;
+    }
+    return false;
+  }
+  
+
   signout(): void {
     AuthService.user = null;
     this.sessionService.clear();
     this.router.navigate(['/auth/signin']);
     this.snackBar.open('Déconnection réussie');
-  }
-
-  admin(): void {
-    if(AuthService.user.roles.indexOf("admin"))
-    {
-      this.router.navigate(['/admin']);
-    }
-    this.snackBar.open('Vous devez être administrateur');
   }
 
 }
